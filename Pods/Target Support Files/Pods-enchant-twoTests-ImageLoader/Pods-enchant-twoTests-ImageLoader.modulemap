@@ -1,0 +1,6 @@
+framework module ImageLoader {
+  umbrella header "Pods-enchant-twoTests-ImageLoader-umbrella.h"
+
+  export *
+  module * { export * }
+}

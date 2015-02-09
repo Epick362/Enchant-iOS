@@ -1,0 +1,54 @@
+PODS:
+  - Alamofire (1.1.3)
+  - Bolts (1.1.3)
+  - CHTCollectionViewWaterfallLayout (0.8)
+  - Facebook-iOS-SDK (3.22.0):
+    - Bolts (~> 1.0)
+  - IJReachability (0.1.0)
+  - ImageLoader (0.0.1)
+  - SwiftyJSON (2.1.1)
+
+DEPENDENCIES:
+  - Alamofire (from `https://github.com/mrackwitz/Alamofire.git`, branch `podspec`)
+  - CHTCollectionViewWaterfallLayout
+  - Facebook-iOS-SDK
+  - IJReachability (from `https://github.com/Isuru-Nanayakkara/IJReachability.git`)
+  - ImageLoader (from `https://github.com/hirohisa/ImageLoaderSwift.git`)
+  - SwiftyJSON (from `https://github.com/orta/SwiftyJSON`, branch `podspec`)
+
+EXTERNAL SOURCES:
+  Alamofire:
+    :branch: podspec
+    :git: https://github.com/mrackwitz/Alamofire.git
+  IJReachability:
+    :git: https://github.com/Isuru-Nanayakkara/IJReachability.git
+  ImageLoader:
+    :git: https://github.com/hirohisa/ImageLoaderSwift.git
+  SwiftyJSON:
+    :branch: podspec
+    :git: https://github.com/orta/SwiftyJSON
+
+CHECKOUT OPTIONS:
+  Alamofire:
+    :commit: e4baf843f89e7c5d2d2478cebcf196f9338a86ba
+    :git: https://github.com/mrackwitz/Alamofire.git
+  IJReachability:
+    :commit: da69c8f4bed9f82203bb49180fb36091b4cd0d28
+    :git: https://github.com/Isuru-Nanayakkara/IJReachability.git
+  ImageLoader:
+    :commit: be39f1541267f54323425223365e91a0b2cf1a41
+    :git: https://github.com/hirohisa/ImageLoaderSwift.git
+  SwiftyJSON:
+    :commit: 252838693668023571c46f56d7ea8347e6948d1b
+    :git: https://github.com/orta/SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 82bd273df6adffbda9740509993f29b2fa5a6d10
+  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  CHTCollectionViewWaterfallLayout: 14b7950cbe45ae9297e7759148d69b022bac047d
+  Facebook-iOS-SDK: 0eda8ff7120aada0a9c5f98552f7625da6c3440a
+  IJReachability: 3eff33caca50869df09b257bcf712031a56a8575
+  ImageLoader: ac83d6848689f041c705cfaeaa1b3d9e05eb4b9f
+  SwiftyJSON: 626bbe0ede796bf69e849b7aa7473778b03fe44c
+
+COCOAPODS: 0.36.0.beta.1

@@ -1,0 +1,1 @@
+PODS_ENCHANT_TWOTESTS_IJREACHABILITY_OTHER_LDFLAGS = -framework "SystemConfiguration"

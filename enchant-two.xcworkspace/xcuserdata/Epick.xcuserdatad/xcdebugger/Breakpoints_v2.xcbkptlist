@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "enchant-two/ViewController.swift"
+            timestampString = "445004851.394906"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "enchant_two.ViewController.fbLoginView.getter : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FBLoginView&gt;"
+                  moduleName = "enchant-two"
+                  urlString = "file:///Users/Epick/Xcode/enchant-two/enchant-two/ViewController.swift"
+                  timestampString = "445169058.845441"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "enchant_two.ViewController.fbLoginView.setter : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FBLoginView&gt;"
+                  moduleName = "enchant-two"
+                  urlString = "file:///Users/Epick/Xcode/enchant-two/enchant-two/ViewController.swift"
+                  timestampString = "445169058.845628"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "enchant_two.ViewController.fbLoginView.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FBLoginView&gt;"
+                  moduleName = "enchant-two"
+                  urlString = "file:///Users/Epick/Xcode/enchant-two/enchant-two/ViewController.swift"
+                  timestampString = "445169058.845749"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "enchant_two.ViewController.init (enchant_two.ViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; enchant_two.ViewController"
+                  moduleName = "enchant-two"
+                  urlString = "file:///Users/Epick/Xcode/enchant-two/enchant-two/ViewController.swift"
+                  timestampString = "445169058.845869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "enchant_two.ViewController.init (enchant_two.ViewController.Type)() -&gt; enchant_two.ViewController"
+                  moduleName = "enchant-two"
+                  urlString = "file:///Users/Epick/Xcode/enchant-two/enchant-two/ViewController.swift"
+                  timestampString = "445169058.845989"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "enchant_two.ViewController.init (enchant_two.ViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; enchant_two.ViewController"
+                  moduleName = "enchant-two"
+                  urlString = "file:///Users/Epick/Xcode/enchant-two/enchant-two/ViewController.swift"
+                  timestampString = "445169058.846119"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
