@@ -4,13 +4,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Enchant Controller-->
+        <!--Enchant-->
         <scene sceneID="wJ8-6A-JAj">
             <objects>
                 <collectionViewController id="NQd-hk-mXl" customClass="EnchantController" customModule="enchant_two" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="w9q-eB-lGY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GnG-ZH-wT1">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -18,14 +19,23 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ebN-ix-Hps">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="ebN-ix-Hps" customClass="EnchantCollectionViewCell" customModule="enchant_two" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqt-eX-gDG">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <size key="customSize" width="250" height="250"/>
+                                <connections>
+                                    <outlet property="enchantPhoto" destination="yqt-eX-gDG" id="uPG-Ah-Bac"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -33,7 +43,7 @@
                             <outlet property="delegate" destination="NQd-hk-mXl" id="XT9-Al-fap"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="y5h-sG-64T">
+                    <navigationItem key="navigationItem" title="Enchant" id="y5h-sG-64T">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GzK-NR-VAH">
                             <connections>
                                 <segue destination="Gc2-eA-Gef" kind="show" id="bMu-pR-4Vh"/>
@@ -41,7 +51,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="hHN-2f-W2h" kind="showDetail" id="Xqu-xM-ke9"/>
+                        <segue destination="hHN-2f-W2h" kind="showDetail" identifier="showDetail" id="Xqu-xM-ke9"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zrx-E8-Rqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,8 +122,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="dzg-m5-Fvw"/>
                     <connections>
-                        <segue destination="NQd-hk-mXl" kind="push" identifier="qrfound" id="VOp-qi-dtN"/>
-                        <segue destination="Gc2-eA-Gef" kind="push" identifier="qrnotfound" id="ip9-fC-jGZ"/>
+                        <segue destination="NQd-hk-mXl" kind="show" identifier="qrfound" id="VOp-qi-dtN"/>
+                        <segue destination="Gc2-eA-Gef" kind="show" identifier="qrnotfound" id="ip9-fC-jGZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yu8-CL-vuZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="-1230" y="865"/>
         </scene>
-        <!--Camera Controller-->
+        <!--Take a picture-->
         <scene sceneID="VGP-W1-teA">
             <objects>
                 <viewController id="Gc2-eA-Gef" customClass="CameraController" customModule="enchant_two" customModuleProvider="target" sceneMemberID="viewController">
@@ -190,7 +200,7 @@
                             <constraint firstItem="F7E-bh-f0g" firstAttribute="bottom" secondItem="0bU-nW-xw6" secondAttribute="top" id="wAA-ds-fNi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jFV-VG-Cxh"/>
+                    <navigationItem key="navigationItem" title="Take a picture" id="jFV-VG-Cxh"/>
                     <connections>
                         <outlet property="cameraCapture" destination="yEf-m2-uZz" id="JCK-TJ-fJ1"/>
                         <outlet property="cameraPreview" destination="7HN-cW-pJU" id="Xej-Dd-WEf"/>

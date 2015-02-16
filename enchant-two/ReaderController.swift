@@ -66,6 +66,7 @@ class ReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     var completionBlock: ((String?) -> ())?
     
     var scannedString: String?
+    var enchant: Enchant?
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -109,9 +110,10 @@ class ReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             
             cameraController.enchantUrl = self.scannedString
         }else if(segue.identifier == "qrfound"){
-//            var EnchantController: EnchantController = segue.destinationViewController as EnchantController
-//            
-//            EnchantController.enchantUrl = self.scannedString
+            var enchantController: EnchantController = segue.destinationViewController as EnchantController
+            
+            enchantController.enchantUrl = self.scannedString
+            enchantController.enchant = self.enchant?
         }
     }
     
@@ -208,21 +210,17 @@ class ReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                     
                     self.scannedString = scannedResult
                     
-                    Alamofire.request(.GET, "http://enchant-app.com/api/v1/enchant", parameters: ["url": self.scannedString!])
-                        .validate()
-                        .responseJSON { (_, _, data, _) in
-                            if data != nil {
-                                let json: JSON = JSON(data!)
-                                
-                                if let url = json["url"].string {
-                                    println("found")
-                                    self.performSegueWithIdentifier("qrfound", sender: self)
-                                }else{
-                                    println("notfound")
-                                    self.performSegueWithIdentifier("qrnotfound", sender: self)
-                                }
-                            }
-                    }
+                    Enchant(url: self.scannedString!).loadEnchant({
+                        (enchant: Enchant?) -> Void in
+                        
+                        self.enchant = enchant
+                        
+                        if enchant != nil {
+                            self.performSegueWithIdentifier("qrfound", sender: self)
+                        }else{
+                            self.performSegueWithIdentifier("qrnotfound", sender: self)
+                        }
+                    })
                 }
             }
         }

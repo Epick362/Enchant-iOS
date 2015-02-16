@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import ImageLoader
 
-let reuseIdentifier = "Cell"
+let reuseIdentifier = "PhotoCell"
 
-class EnchantController: UICollectionViewController {
+class EnchantController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
     
     var enchantUrl: String?
+    var enchant: Enchant?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +23,28 @@ class EnchantController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.registerClass(EnchantCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        if enchant == nil {
+            
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var cameraController: CameraController = segue.destinationViewController as CameraController
+        
+        cameraController.enchantUrl = self.enchantUrl!
     }
 
     /*
@@ -45,19 +61,28 @@ class EnchantController: UICollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         //#warning Incomplete method implementation -- Return the number of sections
-        return 0
+        return 1
     }
-
+    
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
+            return CGSize(width: (self.view.bounds.width - 10)/2, height: (self.view.bounds.width - 10)/2)
+    }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+        return self.enchant!.data["photos"].count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> EnchantCollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as EnchantCollectionViewCell
+        
         // Configure the cell
+        if let photoUrl = self.enchant?.data["photos"][indexPath.row]["url"].string {
+            let URL: NSURL = NSURL(string: photoUrl)!
+            cell.enchantPhoto?.load(URL, placeholder: nil, completionHandler: { (URL, image, error) -> () in
+                println("image n.\(indexPath.row) loaded")
+            })
+        }
     
         return cell
     }
@@ -71,12 +96,12 @@ class EnchantController: UICollectionViewController {
     }
     */
 
-    /*
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        println("\(indexPath.row) selected.")
+        
         return true
     }
-    */
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

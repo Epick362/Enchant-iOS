@@ -23,7 +23,7 @@ class Enchant
         self.url = url
     }
     
-    func loadEnchant(completed: (enchant: JSON?) -> Void) {
+    func loadEnchant(completed: (enchant: Enchant?) -> Void) {
         Alamofire.request(.GET, "http://enchant-app.com/api/v1/enchant", parameters: ["url": self.url!])
             .validate()
             .responseJSON { (request, response, data, error) -> Void in
@@ -31,12 +31,40 @@ class Enchant
                     let json = JSON(data!)
                     
                     self.data = json
-                    
+                     
                     println("Enchant loaded")
-                    completed(enchant: json)
+                    completed(enchant: self)
                 }else{
                     println("Enchant not found")
                     completed(enchant: nil)
+                }
+        }
+    }
+    
+    func uploadImage(image: UIImage, completed: () -> Void) {
+        Alamofire.request(.POST, "http://enchant-app.com/api/v1/enchant", parameters: ["url": self.url!])
+            .response { (_, _, _, error) in
+                if(error == nil) {
+                    // Enchant created - attempt to upload photos
+                    let imageToUpload = RBResizeImage(image, CGSize(width: 816, height: 1088))
+                    
+                    var parameters = [
+                        "photo": NetData(jpegImage: imageToUpload, compressionQuality: 30, filename: "blabla.jpg"),
+                        "url": self.url!
+                    ]
+                    
+                    let urlRequest = urlRequestWithComponents("http://enchant-app.com/api/v1/enchant/photo", parameters)
+                    
+                    Alamofire.upload(urlRequest.0, urlRequest.1)
+                        .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
+                            println("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
+                        }
+                        .response { (_, _, JSON, error) in
+                            println("JSON \(JSON)")
+                            println("ERROR \(error)")
+                            
+                            completed()
+                    }
                 }
         }
     }

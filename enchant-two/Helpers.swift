@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 enum MimeType: String {
     case ImageJpeg = "image/jpeg"
@@ -108,4 +109,56 @@ func RBResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
     UIGraphicsEndImageContext()
     
     return newImage
+}
+
+func urlRequestWithComponents(urlString: String, parameters: NSDictionary) -> (URLRequestConvertible, NSData) {
+    
+    // create url request to send
+    var mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+    mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
+    //let boundaryConstant = "myRandomBoundary12345"
+    let boundaryConstant = "NET-POST-boundary-\(arc4random())-\(arc4random())"
+    let contentType = "multipart/form-data;boundary="+boundaryConstant
+    mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
+    
+    
+    // create upload data to send
+    let uploadData = NSMutableData()
+    
+    // add parameters
+    for (key, value) in parameters {
+        
+        uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        if value is NetData {
+            // add image
+            var postData = value as NetData
+            
+            
+            //uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"; filename=\"\(postData.filename)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            
+            // append content disposition
+            var filenameClause = " filename=\"\(postData.filename)\""
+            let contentDispositionString = "Content-Disposition: form-data; name=\"\(key)\";\(filenameClause)\r\n"
+            let contentDispositionData = contentDispositionString.dataUsingEncoding(NSUTF8StringEncoding)
+            uploadData.appendData(contentDispositionData!)
+            
+            
+            // append content type
+            //uploadData.appendData("Content-Type: image/png\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!) // mark this.
+            let contentTypeString = "Content-Type: \(postData.mimeType.getString())\r\n\r\n"
+            let contentTypeData = contentTypeString.dataUsingEncoding(NSUTF8StringEncoding)
+            uploadData.appendData(contentTypeData!)
+            uploadData.appendData(postData.data)
+            
+        }else{
+            uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
+        }
+    }
+    uploadData.appendData("\r\n--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+    
+    
+    
+    // return URLRequestConvertible and NSData
+    return (Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: nil).0, uploadData)
 }

@@ -16,6 +16,7 @@
 		6435A4841A87980300063290 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435A4831A87980300063290 /* Helpers.swift */; };
 		6435A4861A87983400063290 /* EnchantCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435A4851A87983400063290 /* EnchantCamera.swift */; };
 		6435A4881A879D3E00063290 /* EnchantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435A4871A879D3E00063290 /* EnchantController.swift */; };
+		644611501A90F2990070E7E7 /* EnchantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446114F1A90F2990070E7E7 /* EnchantCollectionViewCell.swift */; };
 		64CE46621A75636700FF05F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE46611A75636700FF05F2 /* AppDelegate.swift */; };
 		64CE46641A75636700FF05F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE46631A75636700FF05F2 /* ViewController.swift */; };
 		64CE46671A75636700FF05F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CE46651A75636700FF05F2 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		6435A4831A87980300063290 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		6435A4851A87983400063290 /* EnchantCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnchantCamera.swift; sourceTree = "<group>"; };
 		6435A4871A879D3E00063290 /* EnchantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnchantController.swift; sourceTree = "<group>"; };
+		6446114F1A90F2990070E7E7 /* EnchantCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnchantCollectionViewCell.swift; sourceTree = "<group>"; };
 		645317DF1A86178600396FF9 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		64CE465C1A75636700FF05F2 /* enchant-two.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "enchant-two.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CE46601A75636700FF05F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				64CE46611A75636700FF05F2 /* AppDelegate.swift */,
 				64CE46631A75636700FF05F2 /* ViewController.swift */,
 				6435A4871A879D3E00063290 /* EnchantController.swift */,
+				6446114F1A90F2990070E7E7 /* EnchantCollectionViewCell.swift */,
 				6435A4791A86C79200063290 /* ReaderController.swift */,
 				6435A4811A8797DB00063290 /* CameraController.swift */,
 				6435A47D1A878FE900063290 /* DetailController.swift */,
@@ -318,6 +321,7 @@
 			files = (
 				6435A4881A879D3E00063290 /* EnchantController.swift in Sources */,
 				6435A4861A87983400063290 /* EnchantCamera.swift in Sources */,
+				644611501A90F2990070E7E7 /* EnchantCollectionViewCell.swift in Sources */,
 				6435A4841A87980300063290 /* Helpers.swift in Sources */,
 				64CE46641A75636700FF05F2 /* ViewController.swift in Sources */,
 				6435A47E1A878FE900063290 /* DetailController.swift in Sources */,
