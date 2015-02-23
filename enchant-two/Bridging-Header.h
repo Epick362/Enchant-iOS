@@ -12,3 +12,5 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 #endif
+
+#import <SDWebImage/UIImageView+WebCache.h>

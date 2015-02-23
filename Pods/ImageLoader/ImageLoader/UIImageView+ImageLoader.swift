@@ -38,21 +38,29 @@ extension UIImageView {
 extension UIImageView {
 
     // MARK: - public
+    public func load(URL: NSURL) {
+        load(URL, placeholder: nil) { _ in }
+    }
+
+    public func load(URL: NSURL, placeholder: UIImage?) {
+        load(URL, placeholder: placeholder) { _ in }
+    }
+
 
     public func load(URL: NSURL, placeholder: UIImage?, completionHandler:(NSURL, UIImage?, NSError?) -> ()) {
-        self.cancelLoading()
+        cancelLoading()
 
         if let placeholder = placeholder {
-            self.image = placeholder
+            image = placeholder
         }
 
         self.URL = URL
-        self._load(URL, completionHandler: completionHandler)
+        _load(URL, completionHandler: completionHandler)
     }
 
     public func cancelLoading() {
-        if let URL = self.URL {
-            Manager.sharedInstance.cancel(URL, block: self.block as? Block)
+        if let URL = URL {
+            Manager.sharedInstance.cancel(URL, block: block as? Block)
         }
     }
 
@@ -80,7 +88,7 @@ extension UIImageView {
                 // requesting is success then set image
                 if self.URL != nil && self.URL!.isEqual(URL) {
                     if let image = image {
-                        wSelf!.image = image.resized(size: wSelf!.frame.size)
+                        wSelf!.image = image
                     }
                 }
                 completionHandler(URL, image, error)

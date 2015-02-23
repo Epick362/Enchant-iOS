@@ -47,18 +47,22 @@ code_sign() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'Bolts.framework'
-  install_framework 'CHTCollectionViewWaterfallLayout.framework'
   install_framework 'FacebookSDK.framework'
+  install_framework 'IJProgressView.framework'
   install_framework 'IJReachability.framework'
   install_framework 'ImageLoader.framework'
+  install_framework 'SDWebImage.framework'
+  install_framework 'Spring.framework'
   install_framework 'SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'Bolts.framework'
-  install_framework 'CHTCollectionViewWaterfallLayout.framework'
   install_framework 'FacebookSDK.framework'
+  install_framework 'IJProgressView.framework'
   install_framework 'IJReachability.framework'
   install_framework 'ImageLoader.framework'
+  install_framework 'SDWebImage.framework'
+  install_framework 'Spring.framework'
   install_framework 'SwiftyJSON.framework'
 fi

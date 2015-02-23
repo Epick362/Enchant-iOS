@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B12BDCCCA7802A3649303C92"
+               BlueprintIdentifier = "B7CB865A5549836738237D4B"
                BuildableName = "IJReachability.framework"
                BlueprintName = "Pods-enchant-twoTests-IJReachability"
                ReferencedContainer = "container:Pods.xcodeproj">

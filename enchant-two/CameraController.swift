@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Alamofire
+import IJProgressView
 
 enum Status: Int {
     case Preview, Still, Error
@@ -19,6 +20,8 @@ class CameraController: UIViewController, EnchantCameraDelegate {
     @IBOutlet weak var cameraStill: UIImageView!
     @IBOutlet weak var cameraPreview: UIView!
     @IBOutlet weak var cameraCapture: UIButton!
+    @IBOutlet weak var okayButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     var preview: AVCaptureVideoPreviewLayer?
     
@@ -33,10 +36,21 @@ class CameraController: UIViewController, EnchantCameraDelegate {
     
     override func viewWillAppear(animated: Bool) {
         self.initializeCamera()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        view.backgroundColor = UIColor.blackColor()
+        self.cameraPreview.backgroundColor = UIColor.blackColor()
+        
+        self.cameraStill.contentMode = .Center;
+        if (self.cameraStill.bounds.size.width > self.cameraStill.image?.size.width && self.cameraStill.bounds.size.height > self.cameraStill.image?.size.height) {
+            self.cameraStill.contentMode = .ScaleAspectFill;
+        }
+        
+        self.okayButton.alpha = 0.0
 
         super.viewWillAppear(animated)
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -50,34 +64,48 @@ class CameraController: UIViewController, EnchantCameraDelegate {
     func establishVideoPreviewArea() {
         self.preview = AVCaptureVideoPreviewLayer(session: self.camera?.session)
         self.preview?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        
+        
         self.preview?.frame = self.cameraPreview.frame
         
         self.cameraPreview.layer.addSublayer(self.preview)
     }
     
     // MARK: Button Actions
+    @IBAction func goBack(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func okayUpload(sender: AnyObject) {
+        if let image = self.cameraStill.image {
+            IJProgressView.shared.showProgressView(view)
+            
+            let stillSize = CGSize(width: self.cameraStill.bounds.width * 2, height: self.cameraStill.bounds.height * 2)
+            
+            Enchant(url: self.enchantUrl!).uploadImage(image, size: stillSize, completed: { () -> Void in
+                println("")
+        
+                IJProgressView.shared.hideProgressView()
+                self.navigationController?.popViewControllerAnimated(true)
+            })
+        }
+    }
     
     @IBAction func captureFrame(sender: AnyObject) {
         if self.status == .Preview {
             UIView.animateWithDuration(0.225, animations: { () -> Void in
                 self.cameraPreview.alpha = 0.0;
+                
+                self.backButton.alpha = 0.0
             })
             
             self.camera?.captureStillImage({ (image) -> Void in
                 if image != nil {
-                    // Attempt to create a new enchant
-                    
-                    println("Uploading image to url: \(self.enchantUrl!)")
-                    
-                    Enchant(url: self.enchantUrl!).uploadImage(image!, completed: { () -> Void in
-                        println("hahah")
-                        self.navigationController?.popViewControllerAnimated(true)
-                    })
-                    
                     self.cameraStill.image = image;
                     
                     UIView.animateWithDuration(0.225, animations: { () -> Void in
                         self.cameraStill.alpha = 1.0;
+                        self.okayButton.alpha = 1.0;
                     })
                     self.status = .Still
                 } else {
@@ -88,8 +116,11 @@ class CameraController: UIViewController, EnchantCameraDelegate {
             })
         } else if self.status == .Still || self.status == .Error {
             UIView.animateWithDuration(0.225, animations: { () -> Void in
-                self.cameraStill.alpha = 0.0;
                 self.cameraPreview.alpha = 1.0;
+                self.backButton.alpha = 1.0;
+                
+                self.cameraStill.alpha = 0.0;
+                self.okayButton.alpha = 0.0
                 self.cameraCapture.setTitle("Capture", forState: UIControlState.Normal)
                 }, completion: { (done) -> Void in
                     self.cameraStill.image = nil;
@@ -115,6 +146,10 @@ class CameraController: UIViewController, EnchantCameraDelegate {
         UIView.animateWithDuration(0.225, animations: { () -> Void in
             self.cameraPreview.alpha = 0.0
         })
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }
 

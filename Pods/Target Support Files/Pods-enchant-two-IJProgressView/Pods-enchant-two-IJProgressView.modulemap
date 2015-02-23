@@ -1,0 +1,6 @@
+framework module IJProgressView {
+  umbrella header "Pods-enchant-two-IJProgressView-umbrella.h"
+
+  export *
+  module * { export * }
+}

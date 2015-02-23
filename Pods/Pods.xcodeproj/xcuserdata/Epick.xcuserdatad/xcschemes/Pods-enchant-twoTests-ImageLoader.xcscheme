@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FB21B8FAE39C3BB6732315B"
+               BlueprintIdentifier = "8D2A32FD2F6456506623DD20"
                BuildableName = "ImageLoader.framework"
                BlueprintName = "Pods-enchant-twoTests-ImageLoader"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -17,6 +17,7 @@
 		6435A4861A87983400063290 /* EnchantCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435A4851A87983400063290 /* EnchantCamera.swift */; };
 		6435A4881A879D3E00063290 /* EnchantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435A4871A879D3E00063290 /* EnchantController.swift */; };
 		644611501A90F2990070E7E7 /* EnchantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446114F1A90F2990070E7E7 /* EnchantCollectionViewCell.swift */; };
+		64B010ED1A98DDF5003183FE /* fff.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B010EC1A98DDF5003183FE /* fff.png */; };
 		64CE46621A75636700FF05F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE46611A75636700FF05F2 /* AppDelegate.swift */; };
 		64CE46641A75636700FF05F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE46631A75636700FF05F2 /* ViewController.swift */; };
 		64CE46671A75636700FF05F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CE46651A75636700FF05F2 /* Main.storyboard */; };
@@ -24,6 +25,13 @@
 		64CE466C1A75636700FF05F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64CE466A1A75636700FF05F2 /* LaunchScreen.xib */; };
 		64CE46781A75636700FF05F2 /* enchant_twoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE46771A75636700FF05F2 /* enchant_twoTests.swift */; };
 		64CE46861A75652A00FF05F2 /* Enchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE46851A75652A00FF05F2 /* Enchant.swift */; };
+		64FDCB351A9BAFF00050B225 /* MKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDCB2E1A9BAFF00050B225 /* MKButton.swift */; };
+		64FDCB361A9BAFF00050B225 /* MKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDCB2F1A9BAFF00050B225 /* MKColor.swift */; };
+		64FDCB371A9BAFF00050B225 /* MKImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDCB301A9BAFF00050B225 /* MKImageView.swift */; };
+		64FDCB381A9BAFF00050B225 /* MKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDCB311A9BAFF00050B225 /* MKLabel.swift */; };
+		64FDCB391A9BAFF00050B225 /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDCB321A9BAFF00050B225 /* MKLayer.swift */; };
+		64FDCB3A1A9BAFF00050B225 /* MKTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDCB331A9BAFF00050B225 /* MKTableViewCell.swift */; };
+		64FDCB3B1A9BAFF00050B225 /* MKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDCB341A9BAFF00050B225 /* MKTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +56,7 @@
 		6435A4871A879D3E00063290 /* EnchantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnchantController.swift; sourceTree = "<group>"; };
 		6446114F1A90F2990070E7E7 /* EnchantCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnchantCollectionViewCell.swift; sourceTree = "<group>"; };
 		645317DF1A86178600396FF9 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		64B010EC1A98DDF5003183FE /* fff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fff.png; sourceTree = "<group>"; };
 		64CE465C1A75636700FF05F2 /* enchant-two.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "enchant-two.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CE46601A75636700FF05F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64CE46611A75636700FF05F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +68,13 @@
 		64CE46761A75636700FF05F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64CE46771A75636700FF05F2 /* enchant_twoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enchant_twoTests.swift; sourceTree = "<group>"; };
 		64CE46851A75652A00FF05F2 /* Enchant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enchant.swift; sourceTree = "<group>"; };
+		64FDCB2E1A9BAFF00050B225 /* MKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKButton.swift; sourceTree = "<group>"; };
+		64FDCB2F1A9BAFF00050B225 /* MKColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKColor.swift; sourceTree = "<group>"; };
+		64FDCB301A9BAFF00050B225 /* MKImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKImageView.swift; sourceTree = "<group>"; };
+		64FDCB311A9BAFF00050B225 /* MKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLabel.swift; sourceTree = "<group>"; };
+		64FDCB321A9BAFF00050B225 /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
+		64FDCB331A9BAFF00050B225 /* MKTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTableViewCell.swift; sourceTree = "<group>"; };
+		64FDCB341A9BAFF00050B225 /* MKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTextField.swift; sourceTree = "<group>"; };
 		6BAF4F9537D38E9B8E913609 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9D393FCC41A1859EDB36E0EB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +138,7 @@
 		64CE465E1A75636700FF05F2 /* enchant-two */ = {
 			isa = PBXGroup;
 			children = (
+				64FDCB2D1A9BAFD90050B225 /* MaterialKitTemporary */,
 				64CE46851A75652A00FF05F2 /* Enchant.swift */,
 				6435A4851A87983400063290 /* EnchantCamera.swift */,
 				64CE46611A75636700FF05F2 /* AppDelegate.swift */,
@@ -139,6 +156,7 @@
 				6435A4751A86C6D300063290 /* ReaderUIView.swift */,
 				6435A4771A86C74E00063290 /* CameraUIButton.swift */,
 				6435A4831A87980300063290 /* Helpers.swift */,
+				64B010EC1A98DDF5003183FE /* fff.png */,
 			);
 			path = "enchant-two";
 			sourceTree = "<group>";
@@ -166,6 +184,20 @@
 				64CE46761A75636700FF05F2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		64FDCB2D1A9BAFD90050B225 /* MaterialKitTemporary */ = {
+			isa = PBXGroup;
+			children = (
+				64FDCB2E1A9BAFF00050B225 /* MKButton.swift */,
+				64FDCB2F1A9BAFF00050B225 /* MKColor.swift */,
+				64FDCB301A9BAFF00050B225 /* MKImageView.swift */,
+				64FDCB311A9BAFF00050B225 /* MKLabel.swift */,
+				64FDCB321A9BAFF00050B225 /* MKLayer.swift */,
+				64FDCB331A9BAFF00050B225 /* MKTableViewCell.swift */,
+				64FDCB341A9BAFF00050B225 /* MKTextField.swift */,
+			);
+			name = MaterialKitTemporary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64B010ED1A98DDF5003183FE /* fff.png in Resources */,
 				64CE46671A75636700FF05F2 /* Main.storyboard in Resources */,
 				64CE466C1A75636700FF05F2 /* LaunchScreen.xib in Resources */,
 				64CE46691A75636700FF05F2 /* Images.xcassets in Resources */,
@@ -319,15 +352,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64FDCB3B1A9BAFF00050B225 /* MKTextField.swift in Sources */,
+				64FDCB381A9BAFF00050B225 /* MKLabel.swift in Sources */,
 				6435A4881A879D3E00063290 /* EnchantController.swift in Sources */,
 				6435A4861A87983400063290 /* EnchantCamera.swift in Sources */,
 				644611501A90F2990070E7E7 /* EnchantCollectionViewCell.swift in Sources */,
 				6435A4841A87980300063290 /* Helpers.swift in Sources */,
+				64FDCB3A1A9BAFF00050B225 /* MKTableViewCell.swift in Sources */,
+				64FDCB391A9BAFF00050B225 /* MKLayer.swift in Sources */,
 				64CE46641A75636700FF05F2 /* ViewController.swift in Sources */,
+				64FDCB361A9BAFF00050B225 /* MKColor.swift in Sources */,
 				6435A47E1A878FE900063290 /* DetailController.swift in Sources */,
 				6435A4761A86C6D300063290 /* ReaderUIView.swift in Sources */,
 				6435A47A1A86C79200063290 /* ReaderController.swift in Sources */,
+				64FDCB351A9BAFF00050B225 /* MKButton.swift in Sources */,
 				6435A4781A86C74E00063290 /* CameraUIButton.swift in Sources */,
+				64FDCB371A9BAFF00050B225 /* MKImageView.swift in Sources */,
 				64CE46621A75636700FF05F2 /* AppDelegate.swift in Sources */,
 				6435A4821A8797DB00063290 /* CameraController.swift in Sources */,
 				64CE46861A75652A00FF05F2 /* Enchant.swift in Sources */,

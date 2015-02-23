@@ -27,7 +27,8 @@
 import UIKit
 import Alamofire
 import AVFoundation
-import SwiftyJSON
+import AudioToolbox
+import IJProgressView
 
 class ReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     private var cameraView: ReaderUIView = ReaderUIView()
@@ -210,16 +211,22 @@ class ReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                     
                     self.scannedString = scannedResult
                     
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    
+                    IJProgressView.shared.showProgressView(view)
+                    
                     Enchant(url: self.scannedString!).loadEnchant({
                         (enchant: Enchant?) -> Void in
                         
                         self.enchant = enchant
-                        
+
                         if enchant != nil {
                             self.performSegueWithIdentifier("qrfound", sender: self)
                         }else{
                             self.performSegueWithIdentifier("qrnotfound", sender: self)
                         }
+                        
+                        IJProgressView.shared.hideProgressView()
                     })
                 }
             }

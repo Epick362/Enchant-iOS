@@ -21,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBAppEvents.activateApp()
         FBLoginView.self
         FBProfilePictureView.self
+        
+        var navigationBarAppearace = UINavigationBar.appearance()
+        
+        navigationBarAppearace.barStyle = UIBarStyle.Black
+        navigationBarAppearace.barTintColor = UIColor.MKColor.Red500
+        navigationBarAppearace.tintColor = UIColor.whiteColor()
 
         return true
     }

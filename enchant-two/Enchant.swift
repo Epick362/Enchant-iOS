@@ -16,7 +16,6 @@ class Enchant
 {
     var url: String?
     var data: JSON!
-    var photos: [EnchantPhoto]?
     
     init(url: String)
     {
@@ -41,15 +40,15 @@ class Enchant
         }
     }
     
-    func uploadImage(image: UIImage, completed: () -> Void) {
+    func uploadImage(image: UIImage, size: CGSize, completed: () -> Void) {
         Alamofire.request(.POST, "http://enchant-app.com/api/v1/enchant", parameters: ["url": self.url!])
             .response { (_, _, _, error) in
                 if(error == nil) {
                     // Enchant created - attempt to upload photos
-                    let imageToUpload = RBResizeImage(image, CGSize(width: 816, height: 1088))
+                    let imageToUpload = RBResizeImage(image, size)
                     
                     var parameters = [
-                        "photo": NetData(jpegImage: imageToUpload, compressionQuality: 30, filename: "blabla.jpg"),
+                        "photo": NetData(jpegImage: imageToUpload, compressionQuality: 0.6, filename: "blabla.jpg"),
                         "url": self.url!
                     ]
                     
@@ -57,7 +56,7 @@ class Enchant
                     
                     Alamofire.upload(urlRequest.0, urlRequest.1)
                         .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
-                            println("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
+                            println("\(totalBytesWritten / 1024)kB / \(totalBytesExpectedToWrite / 1024)kB")
                         }
                         .response { (_, _, JSON, error) in
                             println("JSON \(JSON)")
@@ -71,9 +70,8 @@ class Enchant
     
     func loadPhotos() -> Void {
         for var i = 0; i < self.data["photos"].count; ++i {
-            //self.photos = EnchantPhoto(photoID: self.data["photos"][i]["name"].string!, url: self.data["photos"][i]["url"].string!)
-            let url = self.data["photos"][i]["url"].string
-            println("photo n. \(i) url: \(url)")
+            //self.photos
+
         }
     }
 }

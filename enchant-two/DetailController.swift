@@ -10,7 +10,6 @@ import UIKit
 
 class DetailController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var photoImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
     
     override func prefersStatusBarHidden() -> Bool {
         return false
@@ -23,17 +22,14 @@ class DetailController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let recognizer = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
-//        recognizer.delegate = self
-//        view.addGestureRecognizer(recognizer)
-//        
-//        self.photoImage.contentMode = .Center;
-//        if (photoImage.bounds.size.width > self.photoImage.image?.size.width && photoImage.bounds.size.height > self.photoImage.image?.size.height) {
-//            photoImage.contentMode = .ScaleAspectFit;
-//        }
-//        
-//        self.titleLabel.text = self.Enchantphoto!.filename
-//        self.photoImage.image = self.Enchantphoto!.image
+        let recognizer = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        recognizer.delegate = self
+        view.addGestureRecognizer(recognizer)
+        
+        self.photoImage.contentMode = .Center;
+        if (photoImage.bounds.size.width > self.photoImage.image?.size.width && photoImage.bounds.size.height > self.photoImage.image?.size.height) {
+            photoImage.contentMode = .ScaleAspectFit;
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C84B0B4A40DD749F0EEA4F6C"
+               BlueprintIdentifier = "C2B33B918173856EE67C343E"
                BuildableName = "Pods_enchant_twoTests.framework"
                BlueprintName = "Pods-enchant-twoTests"
                ReferencedContainer = "container:Pods.xcodeproj">

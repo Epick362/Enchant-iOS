@@ -14,12 +14,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CHTCollectionViewWaterfallLayout.xcscheme</key>
+		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<key>Pods-IJProgressView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -30,6 +30,16 @@
 			<false/>
 		</dict>
 		<key>Pods-ImageLoader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Spring.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,12 +59,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-enchant-two-CHTCollectionViewWaterfallLayout.xcscheme</key>
+		<key>Pods-enchant-two-Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-enchant-two-Facebook-iOS-SDK.xcscheme</key>
+		<key>Pods-enchant-two-IJProgressView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -65,6 +75,16 @@
 			<false/>
 		</dict>
 		<key>Pods-enchant-two-ImageLoader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-enchant-two-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-enchant-two-Spring.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -89,12 +109,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-enchant-twoTests-CHTCollectionViewWaterfallLayout.xcscheme</key>
+		<key>Pods-enchant-twoTests-Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-enchant-twoTests-Facebook-iOS-SDK.xcscheme</key>
+		<key>Pods-enchant-twoTests-IJProgressView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -105,6 +125,16 @@
 			<false/>
 		</dict>
 		<key>Pods-enchant-twoTests-ImageLoader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-enchant-twoTests-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-enchant-twoTests-Spring.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -127,122 +157,152 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06ABF25C9279082ACDE5C0BA</key>
+		<key>0694B3B2F2DA2A0C17825911</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1FB21B8FAE39C3BB6732315B</key>
+		<key>0A566CE5F0CB450D2E5964EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2A51EB1E1EE85E040750D4BD</key>
+		<key>11B25759F988E08FA332285D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>315320568EE27401B35B95BE</key>
+		<key>1A81BBB9A678523EA3839925</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38106D5F75F75555B94C83F5</key>
+		<key>23FA1E210AD4B665FF978F93</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4F284206147DE41575A1767D</key>
+		<key>318CF3FEAF3687E55118A241</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5541D479A683ECC206A35BCB</key>
+		<key>37AC1872B1FC09B8F3FE1E08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A59B7A3EC93808C845E6F16E</key>
+		<key>3DF2AC0F9A1D9EEFC2A5B391</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACF5D231CF1C9CBB30B0314F</key>
+		<key>48F770C5E2F2DE70953EA090</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B12BDCCCA7802A3649303C92</key>
+		<key>55EA0B37E06AF7927B3842A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3C7409923EAF4230D0E352D</key>
+		<key>58F9012C7ED5161FD23B5407</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B99E5477D0324F353A012ED1</key>
+		<key>5BE67F759FF0739D1135901B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB1E266C8E9044429EBE31A9</key>
+		<key>63B2830C932405F32F89D986</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB7C6C44FF07F6D3B5DFFBF1</key>
+		<key>658FF15CD615DC262D1EA3F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1205DF075A03BA0A598242A</key>
+		<key>70549DA92BF11168DFE007DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5C9C8CDD9E374ED1D5D57B1</key>
+		<key>789C1F9214A0462A67CBB3E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C667CE8CA767633FE7C128C0</key>
+		<key>7C4F9B4488212CEED6E4BC07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C84B0B4A40DD749F0EEA4F6C</key>
+		<key>8D2A32FD2F6456506623DD20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CEEAB117E43720701BBED153</key>
+		<key>8F557AA71B12E077F39B1DDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D43FED426767AB9489AEC702</key>
+		<key>9A0D853686DC69CD20CFD378</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D79E0F1744A80C61ED740DFC</key>
+		<key>B5D5970FEA1858DEB6725E18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DDF089C470C3E938688607C8</key>
+		<key>B7CB865A5549836738237D4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E48F40E4AB19D8FB1CD84585</key>
+		<key>B9C604304B93A47027E96546</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE223175B4E24705ABF951F5</key>
+		<key>BA33917A0BDA84264C6360EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BBE3D766EF3EAEB6EA26CDF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C2B33B918173856EE67C343E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1353997D20835EB50105D87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D86C76878BA565DE3DC9CFDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9D2FD1452106A2603EFF67A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB0FA620E01BE3B009A16DD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

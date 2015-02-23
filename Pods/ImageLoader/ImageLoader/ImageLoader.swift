@@ -20,39 +20,21 @@ extension CGBitmapInfo {
 
 extension UIImage {
 
-    internal func resized(#size: CGSize) -> UIImage {
-
-        let scale = UIScreen.mainScreen().scale
-
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        let context = UIGraphicsGetCurrentContext()
-        CGContextSetInterpolationQuality(context, kCGInterpolationHigh)
-
-        let frame = CGRect(x: 0, y: 0, width: Int(size.width), height: Int(size.height))
-        self.drawInRect(frame)
-
-        if let resizedImage = UIGraphicsGetImageFromCurrentImageContext() {
-            return resizedImage
-        }
-
-        return self
-    }
-
     internal func inflated() -> UIImage {
         let scale = UIScreen.mainScreen().scale
-        let width = CGImageGetWidth(self.CGImage)
-        let height = CGImageGetHeight(self.CGImage)
+        let width = CGImageGetWidth(CGImage)
+        let height = CGImageGetHeight(CGImage)
         if !(width > 0 && height > 0) {
             return self
         }
 
-        let bitsPerComponent = CGImageGetBitsPerComponent(self.CGImage)
+        let bitsPerComponent = CGImageGetBitsPerComponent(CGImage)
 
         if (bitsPerComponent > 8) {
             return self
         }
 
-        var bitmapInfo = CGImageGetBitmapInfo(self.CGImage)
+        var bitmapInfo = CGImageGetBitmapInfo(CGImage)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colorSpaceModel = CGColorSpaceGetModel(colorSpace)
 
@@ -80,10 +62,10 @@ extension UIImage {
 
         let frame = CGRect(x: 0, y: 0, width: Int(width), height: Int(height))
 
-        CGContextDrawImage(context, frame, self.CGImage)
+        CGContextDrawImage(context, frame, CGImage)
         let inflatedImageRef = CGBitmapContextCreateImage(context)
 
-        if let inflatedImage = UIImage(CGImage: inflatedImageRef, scale: scale, orientation: self.imageOrientation) {
+        if let inflatedImage = UIImage(CGImage: inflatedImageRef, scale: scale, orientation: imageOrientation) {
             return inflatedImage
         }
 
@@ -126,8 +108,8 @@ public class Manager {
 
     let session: NSURLSession
     let cache: ImageLoaderCacheProtocol
-    let delegate: SessionDataDelegate
-    public var inflatesImage: Bool
+    let delegate: SessionDataDelegate = SessionDataDelegate()
+    public var inflatesImage: Bool = true
 
     // MARK: singleton instance
     public class var sharedInstance: Manager {
@@ -141,11 +123,8 @@ public class Manager {
     init(configuration: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration(),
         cache: ImageLoaderCacheProtocol = Diskcached()
         ) {
-            let delegate = SessionDataDelegate()
-            self.session = NSURLSession(configuration: configuration, delegate: delegate, delegateQueue: nil)
-            self.delegate = delegate
+            session = NSURLSession(configuration: configuration, delegate: delegate, delegateQueue: nil)
             self.cache = cache
-            self.inflatesImage = true
     }
 
     // MARK: state
@@ -154,7 +133,7 @@ public class Manager {
 
         var status: ImageLoaderState = .Ready
 
-        for loader: Loader in self.delegate.loaders.values {
+        for loader: Loader in delegate.loaders.values {
             switch loader.state {
             case .Running:
                 status = .Running
@@ -172,22 +151,22 @@ public class Manager {
     // MARK: loading
 
     internal func load(URL: NSURL) -> Loader {
-        if let loader = self.delegate[URL] {
+        if let loader = delegate[URL] {
             loader.resume()
             return loader
         }
 
         let request = NSMutableURLRequest(URL: URL)
         request.setValue("image/*", forHTTPHeaderField: "Accept")
-        let task = self.session.dataTaskWithRequest(request)
+        let task = session.dataTaskWithRequest(request)
 
         let loader = Loader(task: task, delegate: self)
-        self.delegate[URL] = loader
+        delegate[URL] = loader
         return loader
     }
 
     internal func suspend(URL: NSURL) -> Loader? {
-        if let loader = self.delegate[URL] {
+        if let loader = delegate[URL] {
             loader.suspend()
             return loader
         }
@@ -197,7 +176,7 @@ public class Manager {
 
     internal func cancel(URL: NSURL, block: Block? = nil) -> Loader? {
 
-        if let loader = self.delegate[URL] {
+        if let loader = delegate[URL] {
 
             if let block = block {
                 loader.remove(block)
@@ -205,7 +184,7 @@ public class Manager {
 
             if loader.blocks.count == 0 || block == nil {
                 loader.cancel()
-                self.delegate.remove(URL)
+                delegate.remove(URL)
             }
 
             return loader
@@ -223,7 +202,7 @@ public class Manager {
 
             get {
                 var loader : Loader?
-                dispatch_sync(self._queue) {
+                dispatch_sync(_queue) {
                     loader = self.loaders[URL]
                 }
 
@@ -231,7 +210,7 @@ public class Manager {
             }
 
             set {
-                dispatch_barrier_async(self._queue) {
+                dispatch_barrier_async(_queue) {
                     self.loaders[URL] = newValue!
                 }
             }
@@ -240,7 +219,7 @@ public class Manager {
         private func remove(URL: NSURL) -> Loader? {
 
             if let loader = self[URL] {
-                self.loaders.removeValueForKey(URL)
+                loaders.removeValueForKey(URL)
                 return loader
             }
 
@@ -272,33 +251,25 @@ public class Loader {
 
     let delegate: Manager
     let task: NSURLSessionDataTask
-    var data: NSMutableData = NSMutableData()
+    var receivedData: NSMutableData = NSMutableData()
     let inflatesImage: Bool
     internal var blocks: [Block] = []
-
-    private class var _resuming_queue: dispatch_queue_t {
-        struct Static {
-            static let queue = dispatch_queue_create("swift.imageloader.queues.resuming", DISPATCH_QUEUE_SERIAL)
-        }
-
-        return Static.queue
-    }
 
     init (task: NSURLSessionDataTask, delegate: Manager) {
         self.task = task
         self.delegate = delegate
-        self.inflatesImage = self.delegate.inflatesImage
+        self.inflatesImage = delegate.inflatesImage
         self.resume()
     }
 
     var state: NSURLSessionTaskState {
-        return self.task.state
+        return task.state
     }
 
     public func completionHandler(completionHandler: (NSURL, UIImage?, NSError?) -> ()) -> Self {
 
         let block = Block(completionHandler: completionHandler)
-        self.blocks.append(block)
+        blocks.append(block)
 
         return self
     }
@@ -306,58 +277,51 @@ public class Loader {
     // MARK: task
 
     internal func suspend() {
-        dispatch_async(Loader._resuming_queue) {
-            self.task.suspend()
-        }
+        task.suspend()
     }
 
     internal func resume() {
-        dispatch_async(Loader._resuming_queue) {
-            self.task.resume()
-        }
+        task.resume()
     }
 
     internal func cancel() {
-        dispatch_async(Loader._resuming_queue) {
-            self.task.cancel()
-        }
+        task.cancel()
     }
 
     private func remove(block: Block) {
         // needs to queue with sync
-        var blocks: [Block] = []
-        for b: Block in self.blocks {
+        var newBlocks: [Block] = []
+        for b: Block in blocks {
             if !b.isEqual(block) {
-                blocks.append(b)
+                newBlocks.append(b)
             }
         }
 
-        self.blocks = blocks
+        blocks = newBlocks
     }
 
     private func receive(data: NSData) {
-        self.data.appendData(data)
+        receivedData.appendData(data)
     }
 
     private func complete(error: NSError?) {
 
         var image: UIImage?
-        let URL = self.task.originalRequest.URL
+        let URL = task.originalRequest.URL
         if error == nil {
-            image = UIImage(data: self.data)
-            if self.inflatesImage {
+            image = UIImage(data: receivedData)
+            if inflatesImage {
                 image = image?.inflated()
             }
             if let image = image {
-                self.delegate.cache[URL] = image
+                delegate.cache[URL] = image
             }
         }
 
-        for block: Block in self.blocks {
+        for block: Block in blocks {
             block.completionHandler(URL, image, error)
         }
-
-        self.blocks = []
+        blocks = []
     }
 }
 

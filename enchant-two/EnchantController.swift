@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ImageLoader
+import SDWebImage
 
 let reuseIdentifier = "PhotoCell"
 
@@ -42,9 +42,15 @@ class EnchantController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var cameraController: CameraController = segue.destinationViewController as CameraController
-        
-        cameraController.enchantUrl = self.enchantUrl!
+        if segue.identifier == "showDetail" {
+            var detailController: DetailController = segue.destinationViewController as DetailController
+            
+            detailController.photoImage?.image = UIImage(named: "fff.png")
+        }else{
+            var cameraController: CameraController = segue.destinationViewController as CameraController
+            
+            cameraController.enchantUrl = self.enchantUrl!
+        }
     }
 
     /*
@@ -65,7 +71,19 @@ class EnchantController: UICollectionViewController, UITextFieldDelegate, UIColl
     }
     
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
-            return CGSize(width: (self.view.bounds.width - 10)/2, height: (self.view.bounds.width - 10)/2)
+        return CGSize(width: 123, height: 123)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 2.0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 2.0
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,9 +97,9 @@ class EnchantController: UICollectionViewController, UITextFieldDelegate, UIColl
         // Configure the cell
         if let photoUrl = self.enchant?.data["photos"][indexPath.row]["url"].string {
             let URL: NSURL = NSURL(string: photoUrl)!
-            cell.enchantPhoto?.load(URL, placeholder: nil, completionHandler: { (URL, image, error) -> () in
-                println("image n.\(indexPath.row) loaded")
-            })
+            let placeholder: UIImage = UIImage(named: "fff.png")!
+            
+            cell.enchantPhoto?.sd_setImageWithURL(URL, placeholderImage: placeholder)
         }
     
         return cell
@@ -98,11 +116,11 @@ class EnchantController: UICollectionViewController, UITextFieldDelegate, UIColl
 
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        println("\(indexPath.row) selected.")
+        self.performSegueWithIdentifier("showDetail", sender: self)
         
         return true
     }
-
+    
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
